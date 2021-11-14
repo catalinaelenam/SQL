@@ -1,0 +1,35 @@
+CREATE TABLE Account (
+Id int NOT NULL PRIMARY KEY,
+Owner varchar(50),
+Balance decimal,
+CreationDate timestamp,
+ExpirationDate timestamp
+);
+
+INSERT INTO Account (Id, Owner, Balance, CreationDate, ExpirationDate)
+VALUES (1, 'Tina Harmon', 666, 2019-10-07, 2023-10-06),
+(8, 'Daniel Jones', 2000, 2019-07-07, 2022-09-08);
+
+SELECT * FROM [Account]
+
+SELECT * FROM Account 
+WHERE Balance<10000;
+
+SELECT * FROM Account 
+WHERE Balance>10000 AND ExpirationDate < DATE('now','+2 day')
+
+UPDATE Account
+SET Balance = 230
+WHERE Id = 1;
+
+DELETE FROM Account WHERE Owner='Tina Harmon';
+
+SELECT SUM(Balance)
+FROM Account
+
+SELECT AVG(Balance)
+FROM Account
+GROUP BY Owner;
+
+
+
